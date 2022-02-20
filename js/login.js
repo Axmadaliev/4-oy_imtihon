@@ -25,7 +25,7 @@ async function login(credentials){
                 window.location.replace('index.html')
             }
             const response = JSON.parse(JSON.stringify(res))
-            alert(response.error)
+            t(response.error)
         })
         .catch(err => {
             alert(err)

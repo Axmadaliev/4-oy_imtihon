@@ -1,7 +1,7 @@
 var searchInputEl = document.getElementById('searchInput')
 var booklistTemplate = document.querySelector('.booklist-template').content
 var bookListEl = document.querySelector('.book__list')
-
+var pagination = document.querySelector('.pagination')
 var showResult = document.querySelector('.amount__result')
 var pageCount = document.querySelector('.pageCount')
 var pagelinkPrev = document.querySelector('.pagePrev')
@@ -22,6 +22,7 @@ window.addEventListener('click', (event)=>{
                 renderBooks(bookListEl)
             })
             renderPage()
+            pageActive(pageEl)
         }
     }
     if(pageEl.dataset.task=="paginationbtnNext"){
@@ -44,7 +45,8 @@ window.addEventListener('click', (event)=>{
             pagelinkNext.classList.remove('disabled')
         }
     }
-
+    pageActive(pageEl)
+    renderPage()
 
     
 })
@@ -53,7 +55,7 @@ window.addEventListener('click', (event)=>{
 async function getBooks() {
     response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchInputEl.value}&startIndex=${(currentPage-1)*10}`)
     response = await response.json()
-    let booksData = response.items
+    // let booksData = response.items
     allBooks = response.totalItems
     return response
 }
@@ -100,8 +102,9 @@ async function renderBooks(node){
         })
         
         // renderPagination(perPage)
-        node.appendChild(bookListFragment)
         showResult.textContent = response.totalItems
+        node.appendChild(bookListFragment)
+        
         renderPage()
 }
 
@@ -113,6 +116,32 @@ let page1 = document.querySelector('.per_page1')
 let page2 = document.querySelector('.per_page2')
 let page3 = document.querySelector('.per_page3')
 let page4 = document.querySelector('.per_page4')
+function pageActive(count){
+    var pagegeDiv=count.closest('ul')
+    // var pageFocus = pagegeDiv.getElementsByClassName('page-link')
+    // let pageFocus = pagination.querySelector('.page-link')
+    // renderPage()
+    // let items = pagination.getElementsByTagName('*')
+    // console.log(items);
+    // console.log(pagination.getElementsByTagName('*').length);
+    if(count.textContent==currentPage){
+        count.classList.add('page-focus')
+    }else{
+        count.classList.remove('page-focus')
+    }
+    // console.log(pageFocus.);
+    // pageFocus.forEach(el=> {
+    // console.log(el);
+
+    //     // el.classList.remove('page-focus')
+    //     if(el.textContent==currentPage){
+    //         el.classList.add('page-focus')
+    //     }else{
+    //         el.classList.remove('page-focus')
+    //     }
+    // })
+
+}
 function renderPage(){
     response.totalItems
     if(currentPage == Math.ceil(allBooks/10)-5){
@@ -131,5 +160,7 @@ function renderPage(){
         page4.textContent = Math.ceil(allBooks/10)
         page4.dataset.page = Math.ceil(allBooks/10)
     }
+    
+    
 }
 

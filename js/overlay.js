@@ -32,7 +32,6 @@ async function getBooks() {
 
 async function renderOverlayBook(bookByTitle){
         let booksData = response.items
-
         booksData.forEach(element=>{
             var overlayBook = document.querySelector('.overlay')
             // console.log(booksData.element.volumeInfo.title);

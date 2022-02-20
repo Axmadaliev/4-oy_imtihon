@@ -92,8 +92,9 @@
             background: #f1f1f1;
             &__item{
                 background: white;
-                width: 290px;
-                height: 520px;
+                width: 300px;
+                min-height: 520px;
+                max-height: max-content;
                 margin: 10px 0;
                 display: flex;
                 padding: 18px 20px;
@@ -198,8 +199,16 @@
     align-items:center;
     .page-link:hover{
         cursor: pointer;
+        
     }
     .page-link:focus{
         background: red!important;
+    }
+    .page-link{
+        margin: 0 5px;
+    }
+    .page-focus{
+        color: white;
+        background-color: rgb(95, 95, 230);
     }
 }

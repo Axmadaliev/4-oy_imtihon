@@ -28,23 +28,22 @@
                 </div>
                 <div class="detail-card">
                     <h3 class="detail-card__author">Published:</h3>
-                    <div id="published" class="detail-card__content">Jamal Kasper</div>
+                    <div id="published" class="detail-card__content"></div>
                 </div>
                 <div class="detail-card">
                     <h3 class="detail-card__author">Publishers:</h3>
-                    <div id="publishers" class="detail-card__content">Jamal Kasper</div>
+                    <div id="publishers" class="detail-card__content"></div>
                 </div>
                 <div class="detail-card">
                     <h3 class="detail-card__author">Categories:</h3>
-                    <div id="categories" class="detail-card__content">Jamal Kasper</div>
+                    <div id="categories" class="detail-card__content"></div>
                 </div>
                 <div class="detail-card">
                     <h3 class="detail-card__author">Pages Count:</h3>
-                    <div id="pageCount" class="detail-card__content">Jamal Kasper</div>
+                    <div id="pageCount" class="detail-card__content"></div>
                 </div>
             </div>
 
-            <div class="overlay__read">Read</div>
         </div>
     </div>
     <section class="container">
@@ -52,7 +51,7 @@
             <img src="./img/main/logo.png" alt="logo">
             <label class="header__label">      
                 <img data-search="search" src="./img/main/search.png" alt="">          
-                <input type="text" class="header__search" id="searchInput" value="java" placeholder="Search books">
+                <input type="text" class="header__search" id="searchInput" value="Javascript" placeholder="Search books">
             </label>
             <img src="./img/main/sun.png" alt="sun">
             <a href="login.html" class="logout">Logout</a>
@@ -65,7 +64,6 @@
             <div class="bookmark">
                 <div class="bookmark__title">Bookmarks</div>
                 <div class="bookmark__content"> If you don't like to read, you haven't found the right book</div>
-
                 <ul id="bookmarkBox" class="bookmark__list"> 
                 </ul>
             
@@ -102,7 +100,7 @@
             <div class="book__author"> </div>
             <div class="book__year"> </div>
             <div class="d-flex mt-2 mb-2 justify-content-between"> 
-                <button type="button" data-task="bookmark" class="bookmarkLink">Bookmark </button>
+                <button type="button" data-add="bookmark" data-task="bookmark" class="bookmarkLink">Bookmark </button>
                 <button class="moreInfoBtn" data-more="moreInfo">More Info </button>
             </div>
             <a href="" class="readLink">Read</a>
@@ -118,7 +116,7 @@
             </div>
             <div class="bookmark__btns d-flex">
                 <button type="button"> <img src="./img/main/book-open.png" alt="bookopen"> </button>
-                <button type="button" class=".delete-btn" data-task="delete"> <img src="./img/main/delete.png" alt="delete"> </button>                   
+                <button type="button" class=".delete-btn" data-task="delete" data-del="delete"> <img src="./img/main/delete.png" alt="delete"> </button>                   
             </div>
         </li>
     </template>
@@ -128,9 +126,9 @@
 <template class="bookmark-template"></template>
 <script src="./js/check-login.js"></script>
 <script src="./js/main.js"></script>
+<script src="./js/overlay.js"></script>
 <script src="./js/search.js"></script>
 <script src="./js/ordered.js"></script>
 <script src="./js/localStorage.js"></script>
-<script src="./js/overlay.js"></script>
 
 </html>
